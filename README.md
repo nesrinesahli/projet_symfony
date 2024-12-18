@@ -123,12 +123,9 @@ Follow these steps to set up the project locally:
 3. **Configure Environment Variables:**
    ```bash
    Duplicate the .env file and update database credentials: DATABASE_URL="mysql://username:password@127.0.0.1:3306/dentary_db"
-4.**Create the Database:**
+4.**Create the Database then start symfony project:**
    ```bash
    php bin/console doctrine:database:create
    php bin/console doctrine:migrations:migrate
-5.**Start the Symfony Server:**
    symfony server:start
-7.**Access the Project: Open your browser and navigate to:**
-   http://localhost:8000
 
