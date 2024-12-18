@@ -1,0 +1,34 @@
+<section id="about" class="about-layout2 pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 offset-lg-1">
+                <div class="heading-layout2">
+                    <h3 class="heading__title mb-60">{{ about.title }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="text-with-icon">
+                    <div class="text__icon"><i class="{{ about.icon }}"></i></div>
+                    <div class="text__content">
+                        <p class="heading__desc">{{ about.description }}</p>
+                        <a href="{{ about.link }}" class="btn btn__secondary btn__rounded mb-70">
+                            <span>{{ about.link_text }}</span><i class="icon-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="about__text bg-white">
+                    <p class="heading__desc mb-30">{{ about.text }}</p>
+                    <ul class="list-items list-unstyled">
+                        {% for item in about.list %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

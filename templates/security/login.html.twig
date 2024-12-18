@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<div class="container-fluid vh-100 d-flex justify-content-center align-items-center" style="overflow: hidden;">
+    <!-- Form Card -->
+    <div class="card shadow-lg" style="width: 100%; max-width: 400px; padding: 1.5rem;">
+        <!-- Logo -->
+        <div class="text-center mb-3">
+            <img src="{{ asset('assets/images/logo/dentary1.png') }}" alt="Dentary Logo" style="width: auto; height: auto;">
+        </div>
+
+        <h1 class="h5 mb-4 text-center">Connecter Vous !</h1>
+
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        {% if app.user %}
+            <div class="alert alert-info">
+                You are logged in as {{ app.user.userIdentifier }}, 
+                <a href="{{ path('logout')}}">Logout</a>
+            </div>
+        {% endif %}
+
+        <!-- Form -->
+        <form method="post", action="{{ path('login') }}">
+            <div class="mb-3">
+                <label for="inputEmail" class="form-label">Email</label>
+                <input type="email" name="email" id="inputEmail" placeholder="Enter your email"
+                       class="form-control" autocomplete="email" required autofocus>
+            </div>
+
+            <div class="mb-3">
+                <label for="inputPassword" class="form-label">Password</label>
+                <input type="password" name="password" id="inputPassword" placeholder="Enter your password"
+                       class="form-control" autocomplete="current-password" required>
+            </div>
+
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+            <div class="d-flex justify-content-center">
+                <!-- Sign In Button -->
+                <div class="mr-2">
+                    <button class="btn btn-primary btn__rounded ml-10" type="submit">Se Connecter</button>
+                </div>
+                {% if userType == 'patient' %}
+                    <div>
+                        <a href="{{ path('register') }}" class="btn btn__primary btn__rounded ml-10">S'inscrire</a>
+                    </div>
+                {% endif %}
+            </div>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

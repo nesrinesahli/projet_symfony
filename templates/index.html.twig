@@ -1,0 +1,491 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Acceuil | Dentary{% endblock %}
+
+{% block content %}
+<!-------------------------------        first intro section          ------------------------------------>
+<section class="slider">
+    <div class="slick-carousel m-slides-0" 
+         data-slick='{"slidesToShow": 1, "arrows": true, "dots": false, "speed": 700, "fade": true, "cssEase": "linear"}'>
+         
+        <div class="slide-item align-v-h">
+            <div class="bg-img">
+                <img src="{{ asset('assets/images/sliders/dent2.jpg') }}" alt="slide img">
+            </div>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-7">
+                        <div class="slide__content">
+                            <h2 class="slide__title">Votre beauté se reflète dans la santé de vos dents</h2>
+                            <p class="slide__desc">
+                                Notre mission est de vous rapprocher de vos dentistes préférés et de simplifier votre contact avec eux !
+                            </p>
+                            <ul class="features-list list-unstyled mb-0 d-flex flex-wrap">
+                                <li class="feature-item">
+                                    <div class="feature__icon">
+                                        <i class="icon-call3"></i>
+                                    </div>
+                                    <h2 class="feature__title">Consultation</h2>
+                                </li>
+                                <li class="feature-item">
+                                    <div class="feature__icon">
+                                        <i class="icon-microscope"></i>
+                                    </div>
+                                    <h2 class="feature__title">Radiologie</h2>
+                                </li>
+                                <li class="feature-item">
+                                    <div class="feature__icon">
+                                        <i class="icon-microscope"></i>
+                                    </div>
+                                    <h2 class="feature__title">Conseil Medical</h2>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-item align-v-h">
+            <div class="bg-img">
+                <img src="{{ asset('assets/images/sliders/dent.jpg') }}" alt="slide img">
+            </div>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-7">
+                        <div class="slide__content">
+                            <h2 class="slide__title">Dentary : Connectez sourires et expertise.</h2>
+                            <p class="slide__desc">
+                                Dentary est votre allié numérique pour une expérience dentaire simplifiée. 
+                                Dentistes, gérez facilement vos patients et votre emploi du temps. 
+                                Patients, trouvez le dentiste idéal et prenez rendez-vous en quelques clics.
+                            </p>
+                            <ul class="features-list list-unstyled mb-0 d-flex flex-wrap">
+                                <li class="feature-item">
+                                    <div class="feature__icon">
+                                        <i class="icon-call3"></i>
+                                    </div>
+                                    <h2 class="feature__title">Consultation</h2>
+                                </li>
+                                <li class="feature-item">
+                                    <div class="feature__icon">
+                                        <i class="icon-microscope"></i>
+                                    </div>
+                                    <h2 class="feature__title">Radiologie</h2>
+                                </li>
+                                <li class="feature-item">
+                                    <div class="feature__icon">
+                                        <i class="icon-microscope"></i>
+                                    </div>
+                                    <h2 class="feature__title">Conseil Medical</h2>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+</section>
+<script>
+    TweenMax.from('.d-flex.align-items-center.justify-content-between', 2, {
+        delay: 1.8,
+        opacity: 0,
+        ease: Expo.easeInOut
+    });
+
+    TweenMax.from('.container-fluid', 2, {
+        delay: 1.8,
+        opacity: 0,
+        ease: Expo.easeInOut
+    });
+
+    TweenMax.from('.slide__title', 2, {
+        delay: 2.6,
+        opacity: 0,
+        ease: Expo.easeInOut
+    });
+
+    TweenMax.from('.slide__desc', 2, {
+        delay: 2.9,
+        opacity: 0,
+        ease: Expo.easeInOut
+    });
+</script>
+
+<section class="contact-info py-0">
+    <div class="container">
+        <div class="row row-no-gutter boxes-wrapper">
+            <!-- Consultation Section -->
+            <div class="col-sm-12 col-md-4">
+                <div class="contact-box d-flex">
+                    <div class="contact__icon">
+                        <i class="icon-call3"></i>
+                    </div>
+                    <div class="contact__content">
+                        <h2 class="contact__title">Consultation</h2>
+                        <p class="contact__desc">
+                            Nos dentistes sont disponibles six jours sur sept, consultez votre dentiste préféré pour prendre un rendez-vous.
+                        </p>
+                        <a href="#rendezvous" class="btn btn__white btn__outlined btn__rounded">
+                            <span>RENDEZ-VOUS</span><i class="icon-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Radiology Section -->
+            <div class="col-sm-12 col-md-4">
+                <div class="contact-box d-flex">
+                    <div class="contact__icon">
+                        <i class="icon-microscope"></i>
+                    </div>
+                    <div class="contact__content">
+                        <h2 class="contact__title">Radiologie</h2>
+                        <p class="contact__desc">
+                            Nos services de radiologie sont disponibles six jours sur sept, consultez votre radiologue préféré pour prendre un rendez-vous.
+                        </p>
+                        <a href="#rendezvous" class="btn btn__white btn__outlined btn__rounded">
+                            <span>RENDEZ-VOUS</span><i class="icon-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Medical Advice Section -->
+            <div class="col-sm-12 col-md-4">
+                <div class="contact-box d-flex">
+                    <div class="contact__icon">
+                        <i class="icon-medicine"></i>
+                    </div>
+                    <div class="contact__content">
+                        <h2 class="contact__title">Conseil Médical</h2>
+                        <p class="contact__desc">
+                            Nos services de conseil sont disponibles sept jours sur sept. Connectez-vous à notre site et posez-nous vos questions.
+                        </p>
+                        <a href="#rendezvous" class="btn btn__white btn__outlined btn__rounded">
+                            <span>CONNEXION</span><i class="icon-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="about-layout2 pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-7 offset-lg-1">
+                <div class="heading-layout2">
+                    <h3 class="heading__title mb-60">DENTARY, votre partenaire en soins dentaires.</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Left Column -->
+            <div class="col-sm-12 col-md-12 col-lg-5">
+                <div class="text-with-icon">
+                    <div class="text__icon">
+                        <i class="icon-doctor"></i>
+                    </div>
+                    <div class="text__content">
+                        <p class="heading__desc font-weight-bold color-secondary mb-30">
+                            Avec Dentary, accédez à un réseau de professionnels engagés et facilitez votre contact pour prendre soin de votre santé dentaire. 
+                            Nous croyons qu'un sourire sain est le reflet d'une beauté intérieure et extérieure.
+                        </p>
+                        <a href="#" class="btn btn__secondary btn__rounded mb-70">
+                            <span>Trouver un dentiste</span> <i class="icon-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Column -->
+            <div class="col-sm-12 col-md-12 col-lg-7">
+                <div class="about__text bg-white">
+                    <p class="heading__desc mb-30">
+                        Notre mission est de vous offrir une expérience simplifiée pour accéder aux meilleurs dentistes et soins dentaires adaptés à vos besoins. 
+                        Nous nous engageons à rendre chaque étape de votre parcours plus fluide, depuis le choix de votre dentiste préféré jusqu'à la prise de rendez-vous.
+                    </p>
+                    <ul class="list-items list-unstyled">
+                        <li>Vous connecter avec des dentistes experts pour des soins adaptés à vos attentes.</li>
+                        <li>Simplifier vos démarches grâce à une plateforme intuitive et moderne.</li>
+                        <li>Vous accompagner dans la gestion de votre santé bucco-dentaire pour un sourire éclatant.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="professionals" class="team-layout2 pb-80">
+    <div class="bg-img">
+        <img src="{{ asset('assets/images/backgrounds/1.jpg') }}" alt="background">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+                <div class="heading text-center mb-40">
+                    <h3 class="heading__title">Rencontrez nos dentistes</h3>
+                    <p class="heading__desc">
+                        Vous êtes curieux de savoir quels sont les dentistes parmi lesquels vous pouvez choisir ? 
+                        Ne vous inquiétez pas, découvrez nos différents talents en toute simplicité !
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="slick-carousel" data-slick='{
+                    "slidesToShow": 3, "slidesToScroll": 1, "autoplay": true, 
+                    "arrows": false, "dots": false, 
+                    "responsive": [
+                        {"breakpoint": 992, "settings": {"slidesToShow": 2}}, 
+                        {"breakpoint": 767, "settings": {"slidesToShow": 1}}, 
+                        {"breakpoint": 480, "settings": {"slidesToShow": 1}}
+                    ]
+                }'>
+
+                    <!-- Dynamic Members -->
+                    {% for professional in professionals %}
+                    <div class="member">
+                        <div class="member__info">
+                            <h5 class="member__name">
+                                {{ professional.firstName }} {{ professional.lastName }}
+                            </h5>
+                            <p class="member__job">{{ professional.specialty }}</p>
+                            <p class="member__desc">{{ professional.description }}</p>
+                            <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
+                                <a href="#" class="btn btn__secondary btn__link btn__rounded">
+                                    <span>RENDEZ-VOUS</span>
+                                    <i class="icon-arrow-right"></i>
+                                </a>
+                                <ul class="social-icons list-unstyled mb-0">
+                                    <li><span class="fas fa-phone-alt"> {{ professional.phoneNumber }}</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="col-12 text-center">
+                        <p>Aucun professionnel disponible pour le moment.</p>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!------------------------------------------ Section des Rendez-vous -------------------------------------------------->
+<section id="rendezvous" class="contact-layout3 bg-overlay pb-60" style="scroll-behavior: smooth;">
+    <div class="bg-img">
+        <img src="{{ asset('assets/images/backgrounds/7.jpg') }}" alt="background">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="contact-panel mb-50">
+                    <h4 class="contact-panel__title">Prenez un rendez-vous</h4>
+                    <p class="contact-panel__desc mb-30">
+                        En cas d'urgence, il est recommandé de nous contacter par appel téléphonique afin que nous puissions vous aider dans les plus brefs délais.
+                    </p>
+                    <form class="contact-panel__form" method="post" id="contactForm" action="connectAll.php">
+                        <fieldset id="first">
+                            <div class="row page slide_page">
+                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <i class="icon-news form-group-icon"></i>
+                                        <input type="text" class="form-control text_field" placeholder="Prénom" name="firstname" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <i class="icon-news form-group-icon"></i>
+                                        <input type="text" class="form-control text_field" placeholder="Nom" name="lastname" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <i class="icon-user form-group-icon"></i>
+                                        <select class="form-control" name="typeRDV" required>
+                                            <option value="" disabled selected>Type de service</option>
+                                            <option value="Consultation initiale">Consultation initiale</option>
+                                            <option value="Suivi médicale">Suivi médicale</option>
+                                            <option value="Autre">Autre</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <select name="sexe" class="form-control" required>
+                                            <option value="" disabled selected>Sexe</option>
+                                            <option value="Femme">Femme</option>
+                                            <option value="Homme">Homme</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <div class="form-group">
+                                        <i class="icon-user form-group-icon"></i>
+                                        <input type="text" class="form-control text_field" placeholder="Âge" name="age" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <div class="form-group form-group-date">
+                                        <i class="icon-calendar form-group-icon"></i>
+                                        <input type="date" class="form-control" name="dateRDV" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <div class="form-group form-group-date">
+                                        <i class="icon-clock form-group-icon"></i>
+                                        <input type="time" class="form-control" name="HeureRDV" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control" name="notes" placeholder="Pourquoi vous prenez rendez-vous ?" rows="4" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn__secondary btn__rounded btn__block mt-10">
+                                        <span>Suivant</span>
+                                        <i class="icon-arrow-right"></i>
+                                    </button>
+                                    <div class="contact-result"></div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="heading heading-light mb-30">
+                    <h3 class="heading__title">Vous n’êtes pas connecté à Dentary ?</h3>
+                    <p class="heading__desc">
+                        Si vous êtes déconnecté, connectez-vous pour prendre rendez-vous. Si vous n’êtes pas encore membre de Dentary, qu’attendez-vous ? Inscrivez-vous dès maintenant !
+                    </p>
+                </div>
+                <div class="d-flex align-items-center">
+                    <a href="#" class="btn btn__white btn__rounded mr-30">
+                        <i class="fas fa-sign-in-alt"></i> <span>Se connecter</span>
+                    </a>
+                    <a href="#" class="btn btn__white btn__rounded ml-10">
+                        <i class="fas fa-user-plus"></i> <span>S'inscrire</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!------------------------------------------ Section des articles (static) -------------------------------------------------->
+<section id="articles" class="blog-grid pb-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+                <div class="heading text-center mb-40">
+                    <h2 class="heading__subtitle">Bibliothèque de ressources</h2>
+                    <h3 class="heading__title">Articles intéressants</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Article 1 -->
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="post-item">
+                    <div class="post__img">
+                        <a href="#">
+                            <img src="{{ asset('assets/images/blog/grid/1.PNG') }}" alt="post image" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="post__body">
+                        <div class="post__meta-cat">
+                            <a href="#">Mental Health</a>
+                        </div>
+                        <div class="post__meta d-flex">
+                            <span class="post__meta-date">Jan 30, 2022</span>
+                            <a class="post__meta-author" href="#">Martin King</a>
+                        </div>
+                        <h4 class="post__title">
+                            <a href="#">6 conseils pour protéger votre santé mentale lorsque vous êtes malade</a>
+                        </h4>
+                        <p class="post__desc">
+                            Il est normal de ressentir de l'anxiété, de l'inquiétude et du chagrin chaque fois que l'on vous diagnostique une maladie...
+                        </p>
+                        <a href="#" class="btn btn__secondary btn__link btn__rounded">
+                            <span>Lire la suite</span>
+                            <i class="icon-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article 2 -->
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="post-item">
+                    <div class="post__img">
+                        <a href="#">
+                            <img src="{{ asset('assets/images/blog/grid/2.PNG') }}" alt="post image" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="post__body">
+                        <div class="post__meta-cat">
+                            <a href="#">Infectieux</a>
+                            <a href="#">Tips</a>
+                        </div>
+                        <div class="post__meta d-flex">
+                            <span class="post__meta-date">Jan 30, 2022</span>
+                            <a class="post__meta-author" href="#">John Ezak</a>
+                        </div>
+                        <h4 class="post__title">
+                            <a href="#">Vous n'êtes pas sûr de porter un masque facial ? Voici comment et pourquoi</a>
+                        </h4>
+                        <p class="post__desc">
+                            Cela signifie que vous devez toujours suivre les ordres d'abri sur place dans votre communauté...
+                        </p>
+                        <a href="#" class="btn btn__secondary btn__link btn__rounded">
+                            <span>Lire la suite</span>
+                            <i class="icon-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article 3 -->
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="post-item">
+                    <div class="post__img">
+                        <a href="#">
+                            <img src="{{ asset('assets/images/blog/grid/3.PNG') }}" alt="post image" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="post__body">
+                        <div class="post__meta-cat">
+                            <a href="#">Mode de vie</a>
+                            <a href="#">Nutrition</a>
+                        </div>
+                        <div class="post__meta d-flex">
+                            <span class="post__meta-date">Jan 28, 2022</span>
+                            <a class="post__meta-author" href="#">Saul Wade</a>
+                        </div>
+                        <h4 class="post__title">
+                            <a href="#">Conseils pour manger sainement lorsque vous travaillez à domicile</a>
+                        </h4>
+                        <p class="post__desc">
+                            Il est normal de ressentir de l'anxiété, de l'inquiétude et du chagrin chaque fois que l'on vous diagnostique une maladie...
+                        </p>
+                        <a href="#" class="btn btn__secondary btn__link btn__rounded">
+                            <span>Lire la suite</span>
+                            <i class="icon-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="Dentary - Dentary Management Platform HTML5 Template">
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/libraries.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="preloader">
+            <div class="loading"><span></span><span></span><span></span><span></span></div>
+        </div>
+
+        <!-- Header -->
+        <header class="header header-layout1">
+            <nav class="navbar navbar-expand-lg sticky-navbar">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="{{ path('homepage') }}">
+                        <img src="{{ asset('assets/images/logo/dentary_dark.png') }}" class="logo-light" alt="logo">
+                        <img src="{{ asset('assets/images/logo/dentary1.png') }}" class="logo-dark" alt="logo">
+                    </a>
+                    <button class="navbar-toggler" type="button">
+                        <span class="menu-lines"><span></span></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="mainNavigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav__item">
+                                <a href="{{ path('homepage') }}" class="nav__item-link">ACCEUIL</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#about" class="nav__item-link">À PROPOS</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#professionals" class="nav__item-link">PROFESSIONNELS</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#articles" class="nav__item-link">ARTICLES</a>
+                            </li>
+                        </ul>
+                        <button class="close-mobile-menu d-block d-lg-none"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="d-none d-xl-flex align-items-center position-relative ml-30">
+                        {% if app.user %}
+                            <!-- Display user's name based on their role -->
+                            {% if is_granted('ROLE_PROFESSIONAL') %}
+                                {% set professional = app.user.professional %}
+                                <a href="{{ path('logout') }}" class="nav__item-link">
+                                    Dr {{ professional.firstName|upper }} {{ professional.lastName|upper }}
+                                </a>
+                            {% elseif is_granted('ROLE_PATIENT') %}
+                                {% set patient = app.user.patient %}
+                                <a href="{{ path('logout') }}" class="nav__item-link">
+                                    {{ patient.firstName|upper }} {{ patient.lastName|upper }}
+                                </a>
+                            {% endif %}
+                        {% else %}
+                            <!-- Default "Connexion" link -->
+                            <span class="menu-lines" id="miniPopup-departments-trigger-icon"><span></span></span>
+                            <a href="{{ path('connexion') }}">CONNEXION</a>
+                        {% endif %}
+
+                        <!-- Navigation button -->
+                        <a href="{% if is_granted('ROLE_PROFESSIONAL') %}{{ path('professional_dashboard') }}
+                                {% elseif is_granted('ROLE_PATIENT') %}{{ path('patient_dashboard') }}
+                                {% else %}#rendezvous{% endif %}" 
+                        class="btn btn__primary btn__rounded ml-30">
+                            <i class="icon-calendar"></i>
+                            <span>
+                                {% if is_granted('ROLE_PROFESSIONAL') %}
+                                    MY DASHBOARD
+                                {% elseif is_granted('ROLE_PATIENT') %}
+                                    MY DASHBOARD
+                                {% else %}
+                                    RENDEZ-VOUS
+                                {% endif %}
+                            </span>
+                        </a>
+
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-secondary">
+                <div class="bg-img"><img src="{{ asset('assets/images/backgrounds/6.jpg') }}" alt="background"></div>
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <span class="fz-14"> dentarycontact@gmail.com, votre partenaire en soin dentaires</span>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <nav>
+                                <ul class="list-unstyled footer__copyright-links d-flex flex-wrap justify-content-end mb-0">
+                                    <li><a href="#">Terms & Conditions</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Cookies</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <button id="scrollTopBtn"><i class="fas fa-long-arrow-alt-up"></i></button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ asset('assets/js/jquery-3.5.1.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+</body>
+</html>

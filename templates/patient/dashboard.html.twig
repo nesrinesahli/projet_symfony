@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vos Rendez-vous{% endblock %}
+
+{% block content %}
+<section class="dashboard-section">
+    <div class="container">
+        <h1 class="text-center">Bienvenue, {{ app.user.patient.firstName }} {{ app.user.patient.lastName }}!</h1>
+        
+        <h2 class="mt-5">Vos Rendez-Vous</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Professionnel</th>
+                    <th>Spécialité</th>
+                    <th>Date</th>
+                    <th>Statut</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rendezvous in rendezvousList %}
+                    <tr>
+                        <td>{{ rendezvous.id }}</td>
+                        <td>{{ rendezvous.professional.firstName }} {{ rendezvous.professional.lastName }}</td>
+                        <td>{{ rendezvous.professional.specialty }}</td>
+                        <td>{{ rendezvous.appointmentDate|date('Y-m-d H:i') }}</td>
+                        <td>{{ rendezvous.status }}</td>
+                        <td>
+                            {% if rendezvous.status == 'scheduled' %}
+                                <a href="#" class="btn btn-primary btn-sm">Modifier</a>
+                                <form method="post" action="{{ path('rendezvous_delete', { id: rendezvous.id }) }}" style="display:inline;" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce rendez-vous ?');">
+                                    <button class="btn btn-danger btn-sm">Supprimer</button>
+                                </form>
+                            {% else %}
+                                <span class="text-muted">N/A</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="6" class="text-center">Aucun rendez-vous trouvé.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2 class="mt-5">Créer Un Nouveau Rendez-Vous</h2>
+        {{ form_start(form) }}
+            <div class="form-group">
+                {{ form_row(form.professional) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.appointmentDate) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.notes) }}
+            </div>
+            <button type="submit" class="btn btn-success">Prendre Rendez-Vous</button>
+        {{ form_end(form) }}
+    </div>
+</section>
+{% endblock %}

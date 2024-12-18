@@ -1,0 +1,20 @@
+<section class="contact-info py-0">
+    <div class="container">
+        <div class="row row-no-gutter boxes-wrapper">
+            {% for box in contact_boxes %}
+                <div class="col-md-4">
+                    <div class="contact-box d-flex">
+                        <div class="contact__icon"><i class="{{ box.icon }}"></i></div>
+                        <div class="contact__content">
+                            <h2 class="contact__title">{{ box.title }}</h2>
+                            <p class="contact__desc">{{ box.description }}</p>
+                            <a href="{{ box.link }}" class="btn btn__white btn__outlined btn__rounded">
+                                <span>{{ box.link_text }}</span><i class="icon-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

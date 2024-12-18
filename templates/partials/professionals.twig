@@ -1,0 +1,33 @@
+<section id="professionals" class="team-layout2 pb-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="heading text-center mb-40">
+                    <h3 class="heading__title">{{ professionals.title }}</h3>
+                    <p class="heading__desc">{{ professionals.description }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="slick-carousel" data-slick='{"slidesToShow": 3, "autoplay": true}'>
+                    {% for member in professionals.members %}
+                        <div class="member">
+                            <div class="member__img">
+                                <img src="{{ asset(member.image) }}" alt="member img">
+                            </div>
+                            <div class="member__info">
+                                <h5 class="member__name"><a href="{{ member.profile }}">{{ member.name }}</a></h5>
+                                <p class="member__job">{{ member.job }}</p>
+                                <p class="member__desc">{{ member.description }}</p>
+                                <a href="{{ member.link }}" class="btn btn__secondary btn__link btn__rounded">
+                                    <span>Lire la suite</span><i class="icon-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

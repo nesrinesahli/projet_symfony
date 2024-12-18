@@ -1,0 +1,31 @@
+<section id="articles" class="blog-grid pb-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="heading text-center mb-40">
+                    <h3 class="heading__title">{{ articles.title }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for article in articles.list %}
+                <div class="col-md-4">
+                    <div class="post-item">
+                        <div class="post__img">
+                            <a href="{{ article.link }}">
+                                <img src="{{ asset(article.image) }}" alt="post image">
+                            </a>
+                        </div>
+                        <div class="post__body">
+                            <h4 class="post__title"><a href="{{ article.link }}">{{ article.title }}</a></h4>
+                            <p class="post__desc">{{ article.description }}</p>
+                            <a href="{{ article.link }}" class="btn btn__secondary btn__link btn__rounded">
+                                <span>Lire la suite</span><i class="icon-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

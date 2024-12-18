@@ -1,0 +1,30 @@
+security:
+    # User provider (fetch users from the database)
+    providers:
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
+
+    # Password hashing for the User entity
+    password_hashers:
+        App\Entity\User:
+            algorithm: auto
+
+    # Firewalls
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            lazy: true
+            provider: app_user_provider
+            custom_authenticator: App\Security\LoginFormAuthenticator
+            logout:
+                path: logout
+                target: /login
+
+    # Access control for professionals
+    # access_control:
+    #     - { path: ^/professional, roles: ROLE_PROFESSIONAL }
+    #     - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<h1>Admin Dashboard</h1>
+<h2>Professionals</h2>
+<ul>
+    {% for professional in professionals %}
+        <li>{{ professional.first_name }} {{ professional.last_name }}</li>
+    {% endfor %}
+</ul>
+<h2>Patients</h2>
+<ul>
+    {% for patient in patients %}
+        <li>{{ patient.first_name }} {{ patient.last_name }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

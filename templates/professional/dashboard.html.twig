@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue Dr !{% endblock %}
+
+{% block content %}
+<section class="dashboard-section">
+    <div class="container">
+        {% set professional = app.user.professional %}
+        <h1 class="text-center">Bienvenue, {{ professional.firstName }} {{ professional.lastName }}!</h1>
+        <p class="text-center">Vous êtes connecté en tant que professionnel.</p>
+
+        <!-- Statistics Section -->
+        <h2 class="mt-5">Statistiques</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Total Rendez-vous</h5>
+                        <p class="card-text display-4">{{ totalRendezvous }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Statuts</h5>
+                        <ul class="list-unstyled">
+                            <li>Scheduled: {{ statusCounts.scheduled }}</li>
+                            <li>Completed: {{ statusCounts.completed }}</li>
+                            <li>Canceled: {{ statusCounts.canceled }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Prochain Rendez-vous</h5>
+                        {% if nextRendezvous %}
+                            <p class="card-text">
+                                {{ nextRendezvous.patient.firstName }} {{ nextRendezvous.patient.lastName }}<br>
+                                {{ nextRendezvous.appointmentDate|date('Y-m-d H:i') }}
+                            </p>
+                        {% else %}
+                            <p class="card-text">Aucun rendez-vous prévu.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Existing Content -->
+        <h2 class="mt-5">Vos rendez-vous</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Patient</th>
+                    <th>Date</th>
+                    <th>Statut</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rendezvous in rendezvousList %}
+                    <tr>
+                        <td>{{ rendezvous.id }}</td>
+                        <td>{{ rendezvous.patient.firstName }} {{ rendezvous.patient.lastName }}</td>
+                        <td>{{ rendezvous.appointmentDate|date('Y-m-d H:i') }}</td>
+                        <td>{{ rendezvous.status }}</td>
+                        <td>
+                            {% if editRendezvous and editRendezvous.id == rendezvous.id %}
+                                <!-- Inline Edit Form -->
+                                {{ form_start(editForm) }}
+                                    <div class="form-group">
+                                        {{ form_row(editForm.patient) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form_row(editForm.appointmentDate) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form_row(editForm.status) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form_row(editForm.notes) }}
+                                    </div>
+                                    <button type="submit" class="btn btn-success">Enregistrer</button>
+                                    <a href="{{ path('professional_dashboard') }}" class="btn btn-secondary">Annuler</a>
+                                {{ form_end(editForm) }}
+                            {% else %}
+                                <!-- Default Actions -->
+                                <a href="{{ path('professional_dashboard', {edit: rendezvous.id}) }}" class="btn btn-primary btn-sm">Modifier</a>
+                                <form method="post" action="{{ path('rendezvous_delete', {id: rendezvous.id}) }}" style="display:inline-block;" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce rendez-vous ?');">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ rendezvous.id) }}">
+                                    <button class="btn btn-danger btn-sm">Supprimer</button>
+                                </form>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2 class="mt-5">Créer Un Nouveau Rendez-Vous</h2>
+        {{ form_start(newForm) }}
+            <div class="form-group">
+                {{ form_row(newForm.patient) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(newForm.appointmentDate) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(newForm.status) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(newForm.notes) }}
+            </div>
+            <button type="submit" class="btn btn-success">Créer</button>
+        {{ form_end(newForm) }}
+    </div>
+</section>
+{% endblock %}

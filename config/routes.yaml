@@ -1,0 +1,51 @@
+# config/routes.yaml
+homepage:
+    path: /
+    controller: App\Controller\MainController::index
+
+connexion:
+    path: /connexion
+    controller: App\Controller\MainController::connexion
+login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+
+logout:
+    path: /logout
+    controller: App\Controller\SecurityController::logout
+
+register:
+    path: /register
+    controller: App\Controller\SecurityController::register
+professional_dashboard:
+    path: /professional/dashboard
+    controller: App\Controller\ProfessionalController::dashboard
+patient_dashboard:
+    path: /patient/dashboard
+    controller: App\Controller\PatientController::dashboard
+
+rendezvous_index:
+    path: /rendezvous
+    controller: App\Controller\RendezvousController::index
+
+rendezvous_new:
+    path: /rendezvous/new
+    controller: App\Controller\RendezvousController::new
+
+rendezvous_show:
+    path: /rendezvous/{id}
+    controller: App\Controller\RendezvousController::show
+    requirements:
+        id: '\d+'
+
+rendezvous_edit:
+    path: /rendezvous/{id}/edit
+    controller: App\Controller\RendezvousController::edit
+    requirements:
+        id: '\d+'
+
+rendezvous_delete:
+    path: /rendezvous/{id}/delete
+    controller: App\Controller\RendezvousController::delete
+    requirements:
+        id: '\d+'

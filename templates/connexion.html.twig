@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion | Dentary{% endblock %}
+
+{% block content %}
+<section id="rendezvous" class="contact-layout3 bg-overlay pb-60" style="scroll-behavior: smooth;">
+    <div class="bg-img">
+        <img src="{{ asset('assets/images/backgrounds/3.jpg') }}" alt="background">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="contact-panel mb-50">
+                    <h4 class="contact-panel__title">Je suis professionnel</h4>
+                    <p class="contact-panel__desc mb-30">
+                        Si vous êtes un professionnel et que vous avez déjà un compte, veuillez cliquer ci-dessous pour vous connecter à votre compte. Si ce n'est pas encore fait, veuillez nous contacter via l'adresse e-mail présente en bas de la page.
+                    </p>
+                    <button type="button" class="btn btn__secondary btn__rounded btn__block btn__xhight mt-10 next_btn1">
+                        <a href="{{ path('login', {userType: 'professional'}) }}">Se connecter en tant que professionnel</a>
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="contact-panel mb-50">
+                    <h4 class="contact-panel__title">Je suis patient</h4>
+                    <p class="contact-panel__desc mb-30">
+                        Si vous êtes patient et que vous souhaitez prendre un rendez-vous et consulter votre dentiste, vous devez d'abord vous connecter à votre compte.
+                    </p>
+                    <button type="button" class="btn btn__secondary btn__rounded btn__block btn__xhight mt-10 next_btn1">
+                        <a href="{{ path('login', {userType: 'patient'}) }}">Se connecter en tant que patient</a>
+                    </button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+{% endblock %}
