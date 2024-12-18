@@ -117,18 +117,18 @@ Follow these steps to set up the project locally:
    ```bash
    git clone https://github.com/yourusername/dentary.git
    cd dentary
-2. **Install Dependencies:**:
+2. **Install Dependencies:**
+   ```bash
    composer install
 3. **Configure Environment Variables:**
+   ```bash
    Duplicate the .env file and update database credentials: DATABASE_URL="mysql://username:password@127.0.0.1:3306/dentary_db"
 4.**Create the Database:**
+   ```bash
    php bin/console doctrine:database:create
    php bin/console doctrine:migrations:migrate
 5.**Start the Symfony Server:**
    symfony server:start
-6.**Access the Project: Open your browser and navigate to:**
+7.**Access the Project: Open your browser and navigate to:**
    http://localhost:8000
 
-
-
-5. 
